@@ -13,3 +13,13 @@ var head = document.querySelector('.list-group-item:nth-child(2)');
 
   var th = document.querySelector('.list-group-item:nth-child(3)');
   th.style.color = 'transparent';
+
+  var div=document.createElement('div');
+  var txt=document.createTextNode('HEllo');
+  div.appendChild(txt);
+  var bef=document.querySelector('header .container');
+  var h=document.querySelector('header h1');
+  bef.before(div,h);
+
+  var loc=document.querySelector('#items li:first-child');
+  loc.before(txt,loc);
