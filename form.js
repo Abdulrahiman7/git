@@ -17,8 +17,11 @@ function newForm(e)
     var text=document.createTextNode('name='+nm+'   no.='+no+" Submitted");
     var del=document.createElement('button');
     del.textContent="delete";
+    var edit=document.createElement('button');
+    edit.textContent="Edit";
     li.appendChild(text);
     li.appendChild(del);
+    li.appendChild(edit);
     ul.appendChild(li);
 
     del.addEventListener('click',function()
@@ -27,6 +30,19 @@ function newForm(e)
             ul.removeChild(de);
             var ema=de.getAttribute('email-data');  
         localStorage.removeItem(ema);
+    });
+    edit.addEventListener('click',function(e)
+    {
+        e.preventDefault();
+        var n=document.getElementById('name');
+        n.value=nm;
+        var n=document.getElementById('email');
+        n.value=em;
+        var n=document.getElementById('number');
+        n.value=no;
+        var de=this.parentElement;
+            var e=de.getAttribute('email-data');  
+        localStorage.removeItem(e);
     });
 form.appendChild(ul);
 var newitem={
